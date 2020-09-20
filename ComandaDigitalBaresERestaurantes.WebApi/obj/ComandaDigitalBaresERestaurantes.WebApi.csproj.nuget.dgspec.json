@@ -4,14 +4,14 @@
     "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj": {
+    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj",
-        "projectName": "ComandaDigitalBaresERestaurantes.WebApi",
-        "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj",
+        "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
+        "projectName": "ComandaDigitalBaresERestaurantes.Aplicacao",
+        "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
         "packagesPath": "C:\\Users\\Guilherme Schafer\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\obj\\",
+        "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Guilherme Schafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,98 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj",
+        "projectName": "ComandaDigitalBaresERestaurantes.WebApi",
+        "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\ComandaDigitalBaresERestaurantes.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Guilherme Schafer\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Guilherme Schafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
+                "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
