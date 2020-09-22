@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {}
+    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj": {}
   },
   "projects": {
     "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
@@ -55,6 +55,71 @@
               "version": "[3.1.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj",
+        "projectName": "ComandaDigitalBaresERestaurantes.IoC",
+        "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj",
+        "packagesPath": "C:\\Users\\Guilherme Schafer\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Guilherme Schafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
+                "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[3.1.8, )"
             }

@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity
 {
-    public class OrderIten
+    public class OrderIten: BaseEntity
     {
-        public int Id { get; set; }
         public int IdProduct { get; set; }
         public virtual Product Product { get; set; }
         public int Quantity { get; set; }

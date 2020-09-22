@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity
 {
-    public class User
+    public class User :BaseEntity
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public bool Active { get; set; }

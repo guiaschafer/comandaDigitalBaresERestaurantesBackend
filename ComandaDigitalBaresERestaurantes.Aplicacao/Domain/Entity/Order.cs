@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity
 {
-    public class Order
+    public class Order: BaseEntity
     {
-        public int Id { get; set; }
         public Client Client { get; set; }
         public int IdClient { get; set; }
         public Status Status{ get; set; }

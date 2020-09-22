@@ -1774,6 +1774,26 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "ComandaDigitalBaresERestaurantes.Aplicacao/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "2.2.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "3.1.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Aplicacao.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Aplicacao.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -6300,15 +6320,17 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "ComandaDigitalBaresERestaurantes.Aplicacao/1.0.0": {
+      "type": "project",
+      "path": "../ComandaDigitalBaresERestaurantes.Aplicacao/ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
+      "msbuildProject": "../ComandaDigitalBaresERestaurantes.Aplicacao/ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.AspNetCore.Authentication >= 2.2.0",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.8",
-      "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
-      "Microsoft.EntityFrameworkCore >= 3.1.8",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8"
+      "ComandaDigitalBaresERestaurantes.Aplicacao >= 1.0.0",
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 3.1.8"
     ]
   },
   "packageFolders": {
@@ -6317,11 +6339,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
-      "projectName": "ComandaDigitalBaresERestaurantes.Aplicacao",
-      "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
+      "projectUniqueName": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj",
+      "projectName": "ComandaDigitalBaresERestaurantes.IoC",
+      "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\ComandaDigitalBaresERestaurantes.IoC.csproj",
       "packagesPath": "C:\\Users\\Guilherme Schafer\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\obj\\",
+      "outputPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.IoC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Guilherme Schafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6336,7 +6358,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
+              "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -6348,23 +6374,7 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication": {
-            "target": "Package",
-            "version": "[2.2.0, )"
-          },
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
-            "target": "Package",
-            "version": "[3.1.8, )"
-          },
-          "Microsoft.AspNetCore.Http.Abstractions": {
-            "target": "Package",
-            "version": "[2.2.0, )"
-          },
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[3.1.8, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
             "target": "Package",
             "version": "[3.1.8, )"
           }
