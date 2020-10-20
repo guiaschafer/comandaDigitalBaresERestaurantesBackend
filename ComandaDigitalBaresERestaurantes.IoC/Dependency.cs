@@ -1,5 +1,14 @@
 ﻿using ComandaDigitalBaresERestaurantes.Aplicacao.Context;
-using ComandaDigitalBaresERestaurantes.Aplicacao.UniOfWork;
+using ComandaDigitalBaresERestaurantes.Interface;
+using ComandaDigitalBaresERestaurantes.Interface.Authentication;
+using ComandaDigitalBaresERestaurantes.Interface.Mappers;
+using ComandaDigitalBaresERestaurantes.Interface.Providers;
+using ComandaDigitalBaresERestaurantes.Interface.Repository;
+using ComandaDigitalBaresERestaurantes.Service;
+using ComandaDigitalBaresERestaurantes.Service.Authentication;
+using ComandaDigitalBaresERestaurantes.Service.Mappers;
+using ComandaDigitalBaresERestaurantes.Service.Providers;
+using ComandaDigitalBaresERestaurantes.Service.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -12,7 +21,23 @@ namespace ComandaDigitalBaresERestaurantes.IoC
     {
         public static void Register(IServiceCollection services)
         {
-            services.TryAddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
+            services.TryAddScoped<IUnitOfWork, UnitOfWork>();
+            services.TryAddScoped<IJwtTokenService, JwtTokenService>();
+            services.TryAddScoped<IPasswordService, PasswordService>();
+            services.TryAddScoped<IHashService, HashService>();
+
+
+            services.TryAddScoped<IUserProvider, UserProvider>();
+            services.TryAddScoped<IAuthenticationProvider, AuthenticationProvider>();
+            services.TryAddScoped<IAuthenticationService, AuthenticationService>();
+
+
+
+            services.TryAddScoped<IUserMapper, UserMapper>();
+            services.TryAddScoped<DatabaseContext>();
+
+
+
         }
     }
 }

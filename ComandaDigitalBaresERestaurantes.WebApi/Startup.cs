@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ComandaDigitalBaresERestaurantes.Aplicacao.Authentication;
 using ComandaDigitalBaresERestaurantes.Aplicacao.Context;
+using ComandaDigitalBaresERestaurantes.IoC;
 using ComandaDigitalBaresERestaurantes.WebApi.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,8 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Dependency.Register(services);
+
             services.AddControllers();
 
             services.AddDbContext<DatabaseContext>(o =>
@@ -72,7 +75,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwt:key"])),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
@@ -105,6 +108,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
                 o.SwaggerEndpoint("/swagger/v1/swagger.json", "Comanda Digital Bares e Restaurantes v1");
             });
 
+           
             UpdateDatabase(app);
 
             if (databaseContext.User.CountAsync().Result == 0)

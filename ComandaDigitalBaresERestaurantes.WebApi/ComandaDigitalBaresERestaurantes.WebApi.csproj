@@ -20,6 +20,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Aplicacao\ComandaDigitalBaresERestaurantes.Aplicacao.csproj" />
+    <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Interface\ComandaDigitalBaresERestaurantes.Interface.csproj" />
+    <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.IoC\ComandaDigitalBaresERestaurantes.IoC.csproj" />
+    <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Service\ComandaDigitalBaresERestaurantes.Service.csproj" />
   </ItemGroup>
 
 

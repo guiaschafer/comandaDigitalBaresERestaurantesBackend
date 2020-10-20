@@ -1794,6 +1794,38 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "ComandaDigitalBaresERestaurantes.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ComandaDigitalBaresERestaurantes.Aplicacao": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Interface.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "ComandaDigitalBaresERestaurantes.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ComandaDigitalBaresERestaurantes.Interface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ComandaDigitalBaresERestaurantes.Service.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -6325,11 +6357,23 @@
       "type": "project",
       "path": "../ComandaDigitalBaresERestaurantes.Aplicacao/ComandaDigitalBaresERestaurantes.Aplicacao.csproj",
       "msbuildProject": "../ComandaDigitalBaresERestaurantes.Aplicacao/ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
+    },
+    "ComandaDigitalBaresERestaurantes.Interface/1.0.0": {
+      "type": "project",
+      "path": "../ComandaDigitalBaresERestaurantes.Interface/ComandaDigitalBaresERestaurantes.Interface.csproj",
+      "msbuildProject": "../ComandaDigitalBaresERestaurantes.Interface/ComandaDigitalBaresERestaurantes.Interface.csproj"
+    },
+    "ComandaDigitalBaresERestaurantes.Service/1.0.0": {
+      "type": "project",
+      "path": "../ComandaDigitalBaresERestaurantes.Service/ComandaDigitalBaresERestaurantes.Service.csproj",
+      "msbuildProject": "../ComandaDigitalBaresERestaurantes.Service/ComandaDigitalBaresERestaurantes.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ComandaDigitalBaresERestaurantes.Aplicacao >= 1.0.0",
+      "ComandaDigitalBaresERestaurantes.Interface >= 1.0.0",
+      "ComandaDigitalBaresERestaurantes.Service >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 3.1.8"
     ]
   },
@@ -6361,6 +6405,12 @@
           "projectReferences": {
             "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj": {
               "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Aplicacao\\ComandaDigitalBaresERestaurantes.Aplicacao.csproj"
+            },
+            "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Interface\\ComandaDigitalBaresERestaurantes.Interface.csproj": {
+              "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Interface\\ComandaDigitalBaresERestaurantes.Interface.csproj"
+            },
+            "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Service\\ComandaDigitalBaresERestaurantes.Service.csproj": {
+              "projectPath": "C:\\projects\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Service\\ComandaDigitalBaresERestaurantes.Service.csproj"
             }
           }
         }

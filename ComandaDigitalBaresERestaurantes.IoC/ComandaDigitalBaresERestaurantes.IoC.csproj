@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Aplicacao\ComandaDigitalBaresERestaurantes.Aplicacao.csproj" />
+    <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Interface\ComandaDigitalBaresERestaurantes.Interface.csproj" />
+    <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Service\ComandaDigitalBaresERestaurantes.Service.csproj" />
   </ItemGroup>
 
 </Project>

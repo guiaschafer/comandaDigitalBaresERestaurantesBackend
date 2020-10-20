@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ComandaDigitalBaresERestaurantes.Interface;
+using ComandaDigitalBaresERestaurantes.Interface.Dtos;
+using ComandaDigitalBaresERestaurantes.Interface.Providers;
+using ComandaDigitalBaresERestaurantes.Service.Providers;
+using ComandaDigitalBaresERestaurantes.WebApi.Request;
+using ComandaDigitalBaresERestaurantes.WebApi.Response;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,31 +13,43 @@ using System.Threading.Tasks;
 
 namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 {
-    public class LoginController
+    public class LoginController : ControllerBase
     {
-        //[HttpPost]
-        //[Route("login")]
-        //public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
-        //{
-        //    // Recupera o usuário
-        //    var user = UserRepository.Get(model.Username, model.Password);
+        private readonly IUserProvider _userProvider;
+        private readonly IAuthenticationProvider _authenticationProvider;
 
-        //    // Verifica se o usuário existe
-        //    if (user == null)
-        //        return NotFound(new { message = "Usuário ou senha inválidos" });
+        public LoginController(IUserProvider userProvider,
+            IAuthenticationProvider authenticationProvider)
+        {
+            _userProvider = userProvider;
+            _authenticationProvider = authenticationProvider;
+        }
 
-        //    // Gera o Token
-        //    var token = TokenService.GenerateToken(user);
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<dynamic>> Login([FromBody] LoginRequest model)
+        {
+            // Recupera o usuário
+            var user = _userProvider.GetUserAsync(model.Username);
 
-        //    // Oculta a senha
-        //    user.Password = "";
 
-        //    // Retorna os dados
-        //    return new
-        //    {
-        //        user = user,
-        //        token = token
-        //    };
-        //}
+            (string hashRecoverPassword, string token, UserDto userDto) = (string.Empty, string.Empty, null);
+
+            if (user != null)
+            {
+                (hashRecoverPassword, token, user) = await _authenticationProvider.AuthenticateAsync(user.Login, model.Password);
+                if (token != null && user != null)
+                {
+                    return Ok(new LoginResponse
+                    {
+                        User = user,
+                        Token = token
+                    });
+                }
+            }
+
+            return Unauthorized();
+        }
     }
 }
