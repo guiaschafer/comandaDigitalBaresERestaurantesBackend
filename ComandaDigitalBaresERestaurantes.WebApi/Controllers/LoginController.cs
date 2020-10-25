@@ -51,5 +51,27 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 
             return Unauthorized();
         }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("register")]
+        public async Task<ActionResult<dynamic>> Register([FromBody] UserDto model)
+        {
+            var user = _userProvider.GetUserAsync(model.Login);
+
+            if(user == null)
+            {
+                if(_userProvider.AddUser(model) > 0)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("Não foi possível realizar o cadastro");
+                }
+            }
+
+            return BadRequest("Não foi possível realizar o cadastro");
+        }
     }
 }

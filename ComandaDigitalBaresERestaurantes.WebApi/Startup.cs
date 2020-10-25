@@ -49,8 +49,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
                 builder.WithOrigins(corsSettings.AllowedOriginsList)
                     .AllowAnyOrigin()
                     .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials()));
+                    .AllowAnyMethod()));
 
 
 
@@ -95,6 +94,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
             app.UseRouting();
 
             app.UseAuthentication();
+            app.UseCors("default");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

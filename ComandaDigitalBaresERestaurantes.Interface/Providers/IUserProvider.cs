@@ -10,5 +10,7 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Providers
     public interface IUserProvider
     {
         UserDto GetUserAsync(string login);
+        int AddUser(UserDto user);
+
     }
 }

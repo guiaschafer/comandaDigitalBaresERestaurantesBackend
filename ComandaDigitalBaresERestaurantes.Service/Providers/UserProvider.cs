@@ -1,4 +1,6 @@
-﻿using ComandaDigitalBaresERestaurantes.Interface;
+﻿using ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity;
+using ComandaDigitalBaresERestaurantes.Interface;
+using ComandaDigitalBaresERestaurantes.Interface.Authentication;
 using ComandaDigitalBaresERestaurantes.Interface.Dtos;
 using ComandaDigitalBaresERestaurantes.Interface.Mappers;
 using ComandaDigitalBaresERestaurantes.Interface.Providers;
@@ -13,12 +15,29 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IUserMapper mapper;
+        private readonly IHashService hashService;
 
         public UserProvider(IUnitOfWork unitOfWork,
-            IUserMapper mapper)
+            IUserMapper mapper,
+            IHashService hashService
+            )
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
+            this.hashService = hashService;
+        }
+
+        public int AddUser(UserDto user)
+        {
+            unitOfWork.UserRepository.Add(new User
+            {
+                Login = user.Login,
+                Password = hashService.EncryptPassword(user.Password),
+                Perfil = Aplicacao.Domain.Enum.Perfil.Client,
+                Active = true
+            });
+
+            return unitOfWork.Commit();
         }
 
         public UserDto GetUserAsync(string login)

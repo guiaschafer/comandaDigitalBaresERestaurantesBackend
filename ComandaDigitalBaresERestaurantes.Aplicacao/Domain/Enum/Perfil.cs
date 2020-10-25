@@ -6,9 +6,10 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Enum
 {
     public enum Perfil
     {
-        Client = 0,
+        Admin = 0,
         Kitchen = 1,
         Bar = 2,
-        Cashier = 3
+        Cashier = 3,
+        Client = 4
     }
 }
