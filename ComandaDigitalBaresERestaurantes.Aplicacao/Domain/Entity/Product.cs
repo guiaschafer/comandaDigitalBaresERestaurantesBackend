@@ -10,7 +10,7 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity
         public double Value { get; set; }
         public string Description { get; set; }
         public string UrlImage { get; set; }
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
         public int IdCategory { get; set; }
     }
 }

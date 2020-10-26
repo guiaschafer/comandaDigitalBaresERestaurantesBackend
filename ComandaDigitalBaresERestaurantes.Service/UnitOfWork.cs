@@ -13,6 +13,7 @@ namespace ComandaDigitalBaresERestaurantes.Service
     {
         public DatabaseContext _context;
         private Repository<User> _userRepository;
+        private ProductRepository _productRepository;
         public UnitOfWork(DatabaseContext context)
         {
             _context = context;
@@ -23,6 +24,14 @@ namespace ComandaDigitalBaresERestaurantes.Service
             get
             {
                 return _userRepository = _userRepository ?? new Repository<User>(_context);
+            }
+        }
+
+        public IRepository<Product> ProductRepository
+        {
+            get
+            {
+                return _productRepository = _productRepository ?? new ProductRepository(_context);
             }
         }
 

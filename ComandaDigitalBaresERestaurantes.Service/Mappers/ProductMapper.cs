@@ -8,21 +8,22 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Service.Mappers
 {
-    public class UserMapper : IUserMapper
+    public class ProductMapper : IProductMapper
     {
-        public IReadOnlyList<UserDto> DtoToMap(IEnumerable<User> source) =>
+        public IReadOnlyList<ProductDto> DtoToMap(IEnumerable<Product> source) =>
           source.Select(MapToDto)
                 .ToList()
                 .AsReadOnly();
 
-        public UserDto MapToDto(User source) =>
+        public ProductDto MapToDto(Product source) =>
             source != null
-            ? new UserDto
+            ? new ProductDto
             {
                 Id = source.Id,
-                Login = source.Login,
-                Password = source.Password,
-                Perfil = (int)source.Perfil
+                Name = source.Name,
+                UrlImagem = source.UrlImage,
+                Value = source.Value,
+                Category = source.Category.Name
             } : null;
     }
 }

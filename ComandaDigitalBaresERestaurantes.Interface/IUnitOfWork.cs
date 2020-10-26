@@ -11,6 +11,8 @@ namespace ComandaDigitalBaresERestaurantes.Interface
     public interface IUnitOfWork 
     {
         IRepository<User> UserRepository { get; }
+        IRepository<Product> ProductRepository { get; }
+
         int Commit();
     }
 }

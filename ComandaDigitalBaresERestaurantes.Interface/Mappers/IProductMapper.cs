@@ -6,10 +6,7 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Interface.Mappers
 {
-    public interface IBaseMapper<T, TEntity> where TEntity : BaseEntity where T : BaseDto
+    public interface IProductMapper : IBaseMapper<ProductDto, Product>
     {
-        IReadOnlyList<T> DtoToMap(IEnumerable<TEntity> source);
-
-        T MapToDto(TEntity source);
     }
 }

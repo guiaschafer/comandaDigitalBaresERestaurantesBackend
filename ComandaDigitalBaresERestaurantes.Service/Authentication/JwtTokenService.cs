@@ -20,23 +20,22 @@ namespace ComandaDigitalBaresERestaurantes.Service.Authentication
 
         public string GetToken(long id, int perfil, string username)
         {
-            var claims = new[]
-           {
-                new Claim(JwtRegisteredClaimNames.UniqueName, id.ToString()),
-                new Claim("Perfil", perfil.ToString()),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_configuration["JWT:key"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                  {
+                        new Claim(JwtRegisteredClaimNames.UniqueName, id.ToString()),
+                        new Claim("Perfil", perfil.ToString()),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                  }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            // tempo de expiração do token: 1 hora
-            var expiration = DateTime.UtcNow.AddHours(1);
-            JwtSecurityToken token = new JwtSecurityToken(
-               issuer: null,
-               audience: null,
-               claims: claims,
-               expires: expiration,
-               signingCredentials: creds);
-            return new JwtSecurityTokenHandler().WriteToken(token);
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
 
 
         }
