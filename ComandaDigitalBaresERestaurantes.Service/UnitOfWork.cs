@@ -13,6 +13,8 @@ namespace ComandaDigitalBaresERestaurantes.Service
     {
         public DatabaseContext _context;
         private Repository<User> _userRepository;
+        private OrderRepository _orderRepository;
+        private ClientRepository _clientRepository;
         private ProductRepository _productRepository;
         public UnitOfWork(DatabaseContext context)
         {
@@ -32,6 +34,21 @@ namespace ComandaDigitalBaresERestaurantes.Service
             get
             {
                 return _productRepository = _productRepository ?? new ProductRepository(_context);
+            }
+        }
+
+        public IRepository<Client> ClientRepository
+        {
+            get
+            {
+                return _clientRepository = _clientRepository ?? new ClientRepository(_context);
+            }
+        }
+        public IRepository<Order> OrderRepository
+        {
+            get
+            {
+                return _orderRepository = _orderRepository ?? new OrderRepository(_context);
             }
         }
 

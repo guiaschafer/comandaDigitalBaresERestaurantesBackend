@@ -26,9 +26,10 @@ namespace ComandaDigitalBaresERestaurantes.Service.Authentication
             {
                 Subject = new ClaimsIdentity(new Claim[]
                   {
-                        new Claim(JwtRegisteredClaimNames.UniqueName, id.ToString()),
+                      new Claim(JwtRegisteredClaimNames.UniqueName, id.ToString()),
+                      new Claim("User", username),
                         new Claim("Perfil", perfil.ToString()),
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                      new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                   }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

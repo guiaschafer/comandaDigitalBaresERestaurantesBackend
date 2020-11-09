@@ -29,12 +29,20 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
         public int AddUser(UserDto user)
         {
-            unitOfWork.UserRepository.Add(new User
+            unitOfWork.ClientRepository.Add(new Client
             {
-                Login = user.Login,
-                Password = hashService.EncryptPassword(user.Password),
-                Perfil = Aplicacao.Domain.Enum.Perfil.Client,
-                Active = true
+                Name = user.Name,
+                LastName = user.LastName,
+                Email = user.Email,
+                Cpf = user.Cpf,
+                Cellphone = user.Cellphone,
+                User = new User
+                {
+                    Login = user.Email,
+                    Password = hashService.EncryptPassword(user.Password),
+                    Perfil = Aplicacao.Domain.Enum.Perfil.Client,
+                    Active = true
+                }
             });
 
             return unitOfWork.Commit();

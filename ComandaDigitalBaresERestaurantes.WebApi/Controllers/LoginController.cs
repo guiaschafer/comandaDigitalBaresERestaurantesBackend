@@ -38,7 +38,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 
             if (user != null)
             {
-                (hashRecoverPassword, token, user) = await _authenticationProvider.AuthenticateAsync(user.Login, model.Password);
+                (hashRecoverPassword, token, user) = await _authenticationProvider.AuthenticateAsync(user.Email, model.Password);
                 if (token != null && user != null)
                 {
                     return Ok(new LoginResponse
@@ -57,7 +57,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
         [Route("register")]
         public async Task<ActionResult<dynamic>> Register([FromBody] UserDto model)
         {
-            var user = _userProvider.GetUserAsync(model.Login);
+            var user = _userProvider.GetUserAsync(model.Email);
 
             if(user == null)
             {

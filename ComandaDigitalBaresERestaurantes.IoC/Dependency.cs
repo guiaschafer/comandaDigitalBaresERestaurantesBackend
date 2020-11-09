@@ -29,16 +29,13 @@ namespace ComandaDigitalBaresERestaurantes.IoC
 
             services.TryAddScoped<IUserProvider, UserProvider>();
             services.TryAddScoped<IProductProvider, ProductProvider>();
+            services.TryAddScoped<IOrderProvider, OrderProvider>();            
             services.TryAddScoped<IAuthenticationProvider, AuthenticationProvider>();
             services.TryAddScoped<IAuthenticationService, AuthenticationService>();
-
-
 
             services.TryAddScoped<IUserMapper, UserMapper>();
             services.TryAddScoped<IProductMapper, ProductMapper>();
             services.TryAddScoped<DatabaseContext>();
-
-
 
         }
     }
