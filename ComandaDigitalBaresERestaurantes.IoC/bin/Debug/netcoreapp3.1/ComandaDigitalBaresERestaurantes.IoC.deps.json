@@ -1478,6 +1478,7 @@
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Bcl.Build": "1.0.21",
           "Microsoft.EntityFrameworkCore": "3.1.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
         },
@@ -1487,7 +1488,8 @@
       },
       "ComandaDigitalBaresERestaurantes.Interface/1.0.0": {
         "dependencies": {
-          "ComandaDigitalBaresERestaurantes.Aplicacao": "1.0.0"
+          "ComandaDigitalBaresERestaurantes.Aplicacao": "1.0.0",
+          "Microsoft.Bcl.Build": "1.0.21"
         },
         "runtime": {
           "ComandaDigitalBaresERestaurantes.Interface.dll": {}

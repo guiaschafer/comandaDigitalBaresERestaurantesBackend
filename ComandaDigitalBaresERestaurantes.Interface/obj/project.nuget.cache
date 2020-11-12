@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aEGPVvPgRig1uHwKZNMme07THiNItQ95fjHReNESfMhTEqdM958kFpytOcWO4++uZkYsbhR3UXpvbk14MZZtwA==",
+  "dgSpecHash": "6W4BZCnVpnnDfx29fl9VsRCeZKDraK77AR2BZeUJoj6JahIupKKKsb5JjHzqg58x8fi1kGZ3C3H28Mf4kTyECw==",
   "success": true,
   "projectFilePath": "C:\\tcc\\comandaDigitalBaresERestaurantesBackend\\ComandaDigitalBaresERestaurantes.Interface\\ComandaDigitalBaresERestaurantes.Interface.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.bcl.build\\1.0.14\\microsoft.bcl.build.1.0.14.nupkg.sha512",
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\guilherme.schafer\\.nuget\\packages\\microsoft.data.sqlclient\\1.1.3\\microsoft.data.sqlclient.1.1.3.nupkg.sha512",
