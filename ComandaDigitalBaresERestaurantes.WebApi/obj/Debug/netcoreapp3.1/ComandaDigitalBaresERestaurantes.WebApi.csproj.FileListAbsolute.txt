@@ -87,6 +87,9 @@ C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.Extensions.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -112,7 +115,10 @@ C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Extensions.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Primitives.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\MundiAPI.PCL.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -139,6 +145,7 @@ C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.Interface.pdb
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.IoC.pdb
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.Service.pdb
+C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.Service.dll.config
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.csprojAssemblyReference.cache
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.AssemblyInfoInputs.cache
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.AssemblyInfo.cs
@@ -152,10 +159,3 @@ C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.dll
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.pdb
 C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\obj\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.WebApi.genruntimeconfig.cache
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.Extensions.Desktop.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.Extensions.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Threading.Tasks.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Extensions.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\System.Net.Http.Primitives.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\MundiAPI.PCL.dll
-C:\tcc\comandaDigitalBaresERestaurantesBackend\ComandaDigitalBaresERestaurantes.WebApi\bin\Debug\netcoreapp3.1\ComandaDigitalBaresERestaurantes.Service.dll.config
