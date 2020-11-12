@@ -12,7 +12,11 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Enum
         [Description("Closed")]
         Closed = 1,
         [Description("Payed")]
-        Payed = 2
+        Payed = 2,
+        [Description("In Progress")]
+        InProgress = 3,
+        [Description("Prepared")]
+        Prepared = 4
 
     }
 }

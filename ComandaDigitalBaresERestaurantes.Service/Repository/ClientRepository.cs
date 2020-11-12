@@ -1,8 +1,10 @@
 ﻿using ComandaDigitalBaresERestaurantes.Aplicacao.Context;
 using ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity;
 using ComandaDigitalBaresERestaurantes.Interface.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -32,12 +34,12 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         public IEnumerable<Client> Get(Expression<Func<Client, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return (IEnumerable<Client>)_context.Client.Include(c=> c.User).Select(predicate).ToList();
         }
 
         public Client GetOne(Expression<Func<Client, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Client.Include(c => c.User).FirstOrDefault(predicate);
         }
 
         public void Update(Client entity)

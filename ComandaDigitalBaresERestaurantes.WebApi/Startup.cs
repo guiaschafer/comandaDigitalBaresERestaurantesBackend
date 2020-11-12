@@ -8,10 +8,12 @@ using ComandaDigitalBaresERestaurantes.Aplicacao.Context;
 using ComandaDigitalBaresERestaurantes.IoC;
 using ComandaDigitalBaresERestaurantes.WebApi.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -79,6 +81,17 @@ namespace ComandaDigitalBaresERestaurantes.WebApi
                     ValidateAudience = false
                 };
             });
+
+            //services.AddMvc(c =>
+            //{
+            //    c.Filters.Add(new AuthorizeFilter(new AuthorizationPolicyBuilder()
+            //        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+            //        .RequireAuthenticatedUser()
+            //        .Build()));
+            //}).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

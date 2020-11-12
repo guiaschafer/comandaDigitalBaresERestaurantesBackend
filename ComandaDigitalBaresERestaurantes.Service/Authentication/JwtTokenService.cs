@@ -1,4 +1,5 @@
-﻿using ComandaDigitalBaresERestaurantes.Interface.Authentication;
+﻿using ComandaDigitalBaresERestaurantes.Aplicacao.Authentication;
+using ComandaDigitalBaresERestaurantes.Interface.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -21,15 +22,15 @@ namespace ComandaDigitalBaresERestaurantes.Service.Authentication
         public string GetToken(long id, int perfil, string username)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_configuration["JWT:key"]);
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                   {
                       new Claim(JwtRegisteredClaimNames.UniqueName, id.ToString()),
-                      new Claim("User", username),
-                        new Claim("Perfil", perfil.ToString()),
-                      new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                      new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                      new Claim(ClaimTypes.Name, username),
+                      new Claim(ClaimTypes.Role, perfil.ToString())
                   }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

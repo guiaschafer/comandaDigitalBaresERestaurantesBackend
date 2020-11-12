@@ -15,7 +15,7 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Context.Configurations
             builder.HasKey(o => o.Id);
             builder.Property(o => o.Quantity).IsRequired();
 
-            builder.HasOne(o => o.Product).WithOne().HasForeignKey<OrderIten>(o => o.IdProduct);
+            builder.HasOne(o => o.Product).WithMany().HasForeignKey(o => o.IdProduct);
         }
     }
 }

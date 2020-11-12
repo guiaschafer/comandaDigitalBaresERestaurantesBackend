@@ -38,7 +38,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 
             if (user != null)
             {
-                (hashRecoverPassword, token, user) = await _authenticationProvider.AuthenticateAsync(user.Email, model.Password);
+                (hashRecoverPassword, token, user) = await _authenticationProvider.AuthenticateAsync(user.Login, model.Password);
                 if (token != null && user != null)
                 {
                     return Ok(new LoginResponse

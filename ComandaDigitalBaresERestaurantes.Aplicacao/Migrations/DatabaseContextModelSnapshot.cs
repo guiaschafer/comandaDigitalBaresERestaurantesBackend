@@ -110,8 +110,7 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Migrations
 
                     b.HasIndex("IdOrder");
 
-                    b.HasIndex("IdProduct")
-                        .IsUnique();
+                    b.HasIndex("IdProduct");
 
                     b.ToTable("OrderIten");
                 });
@@ -201,8 +200,8 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Migrations
                         .IsRequired();
 
                     b.HasOne("ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity.Product", "Product")
-                        .WithOne()
-                        .HasForeignKey("ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity.OrderIten", "IdProduct")
+                        .WithMany()
+                        .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

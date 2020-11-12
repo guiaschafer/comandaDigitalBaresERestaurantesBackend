@@ -1,8 +1,10 @@
 ﻿using ComandaDigitalBaresERestaurantes.Aplicacao.Context;
 using ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity;
 using ComandaDigitalBaresERestaurantes.Interface.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -17,7 +19,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
         }
         public void Add(Order entity)
         {
-            throw new NotImplementedException();
+            _context.Add(entity);
         }
 
         public void Delete(Order entity)
@@ -32,12 +34,18 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Order.Include(o => o.Client)
+                .Include(o => o.ListOfItens)
+                .ThenInclude(o=> o.Product)
+                .Where(predicate);
         }
 
         public Order GetOne(Expression<Func<Order, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Order.Include(o => o.Client)
+              .Include(o => o.ListOfItens)
+              .ThenInclude(o => o.Product)
+              .FirstOrDefault(predicate);
         }
 
         public void Update(Order entity)

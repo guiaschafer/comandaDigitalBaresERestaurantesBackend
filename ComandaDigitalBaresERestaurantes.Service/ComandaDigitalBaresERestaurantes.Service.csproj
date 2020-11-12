@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MundiAPI.PCL" Version="0.16.15" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ComandaDigitalBaresERestaurantes.Interface\ComandaDigitalBaresERestaurantes.Interface.csproj" />
   </ItemGroup>
 
