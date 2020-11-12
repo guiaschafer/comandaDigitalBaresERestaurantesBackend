@@ -206,9 +206,6 @@
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
-      "Microsoft.Bcl.Build/1.0.14": {
-        "type": "package"
-      },
       "Microsoft.Bcl.HashCode/1.1.0": {
         "type": "package",
         "compile": {
@@ -1988,28 +1985,6 @@
         "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Microsoft.Bcl.Build/1.0.14": {
-      "sha512": "cDLKSvNvRa519hplsbSoYqO69TjdDIhfjtKUM0g20/nVROoWsGav9KCI9HtnGjLmdV1+TcUUDhbotcllibjPEA==",
-      "type": "package",
-      "path": "microsoft.bcl.build/1.0.14",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "License-Stable.rtf",
-        "content/net40/_._",
-        "content/netcore45/_._",
-        "content/portable-net40+win8+sl4+wp71+wpa81/_._",
-        "content/sl4-windowsphone71/_._",
-        "content/sl4/_._",
-        "microsoft.bcl.build.1.0.14.nupkg.sha512",
-        "microsoft.bcl.build.nuspec",
-        "tools/Install.ps1",
-        "tools/Microsoft.Bcl.Build.Tasks.dll",
-        "tools/Microsoft.Bcl.Build.targets",
-        "tools/Uninstall.ps1"
       ]
     },
     "Microsoft.Bcl.HashCode/1.1.0": {
@@ -6332,7 +6307,6 @@
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.8",
       "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
-      "Microsoft.Bcl.Build >= 1.0.14",
       "Microsoft.EntityFrameworkCore >= 3.1.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8"
     ]
@@ -6385,10 +6359,6 @@
           "Microsoft.AspNetCore.Http.Abstractions": {
             "target": "Package",
             "version": "[2.2.0, )"
-          },
-          "Microsoft.Bcl.Build": {
-            "target": "Package",
-            "version": "[1.0.14, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

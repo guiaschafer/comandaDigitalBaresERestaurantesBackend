@@ -50,10 +50,6 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.Bcl.Build": {
-              "target": "Package",
-              "version": "[1.0.14, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.8, )"
@@ -122,12 +118,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.Bcl.Build": {
-              "target": "Package",
-              "version": "[1.0.14, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -258,12 +248,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "MundiAPI.PCL": {
-              "target": "Package",
-              "version": "[0.16.15, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MundiAPI.PCL;
-using MundiAPI.PCL.Models;
 
 namespace ComandaDigitalBaresERestaurantes.Service.Providers
 {
@@ -58,55 +56,55 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
             if (order != null)
             {
-                MundiAPIClient client = new MundiAPIClient("sk_test_OKxVB791Fei8dwy9", null);
+                //MundiAPIClient client = new MundiAPIClient("sk_test_OKxVB791Fei8dwy9", null);
 
-                var items = new List<CreateOrderItemRequest> {
-                     new CreateOrderItemRequest {
-                     Amount = 1,//(int)totalOrder,
-                     Description = "Pedido nº" + order.Id,
-                     Quantity = 1
-                     }
-                 };
-                var customer = new CreateCustomerRequest
-                {
-                    Name = order.Client.Fullname,
-                    Email = order.Client.Email,
-                };
+                //var items = new List<CreateOrderItemRequest> {
+                //     new CreateOrderItemRequest {
+                //     Amount = 1,//(int)totalOrder,
+                //     Description = "Pedido nº" + order.Id,
+                //     Quantity = 1
+                //     }
+                // };
+                //var customer = new CreateCustomerRequest
+                //{
+                //    Name = order.Client.Fullname,
+                //    Email = order.Client.Email,
+                //};
 
-                var payments = new List<CreatePaymentRequest> {
-                     new CreatePaymentRequest {
-                         PaymentMethod = "credit_card",
-                         CreditCard = new CreateCreditCardPaymentRequest {
-                              Card = new CreateCardRequest {
-                                    HolderName = paymentDto.CardName,
-                                    Number = paymentDto.CardNumber,
-                                    ExpMonth = Int32.Parse(paymentDto.ValidUntil.Substring(0, 2)),
-                                    ExpYear = Int32.Parse(paymentDto.ValidUntil.Substring(3, 2)),
-                                    Cvv = paymentDto.Cvv
-                              }
-                         }
-                     }
-                };
+                //var payments = new List<CreatePaymentRequest> {
+                //     new CreatePaymentRequest {
+                //         PaymentMethod = "credit_card",
+                //         CreditCard = new CreateCreditCardPaymentRequest {
+                //              Card = new CreateCardRequest {
+                //                    HolderName = paymentDto.CardName,
+                //                    Number = paymentDto.CardNumber,
+                //                    ExpMonth = Int32.Parse(paymentDto.ValidUntil.Substring(0, 2)),
+                //                    ExpYear = Int32.Parse(paymentDto.ValidUntil.Substring(3, 2)),
+                //                    Cvv = paymentDto.Cvv
+                //              }
+                //         }
+                //     }
+                //};
 
-                var request = new CreateOrderRequest
-                {
-                    Items = items,
-                    Customer = customer,
-                    Payments = payments
-                };
+                //var request = new CreateOrderRequest
+                //{
+                //    Items = items,
+                //    Customer = customer,
+                //    Payments = payments
+                //};
 
-                var response = client.Orders.CreateOrder(request);
+                //var response = client.Orders.CreateOrder(request);
 
-                if(response.Status != "paid")
-                {
-                    var error = (MundiAPI.PCL.Models.GetCreditCardTransactionResponse)response.Charges[0].LastTransaction;
-                    throw new Exception(error.AcquirerMessage);                    
-                }
-                else
-                {
-                    order.Status = Status.Payed;
-                    unitOfWork.Commit();
-                }
+                //if(response.Status != "paid")
+                //{
+                //    var error = (MundiAPI.PCL.Models.GetCreditCardTransactionResponse)response.Charges[0].LastTransaction;
+                //    throw new Exception(error.AcquirerMessage);                    
+                //}
+                //else
+                //{
+                //    order.Status = Status.Payed;
+                //    unitOfWork.Commit();
+                //}
             }
         }
 
