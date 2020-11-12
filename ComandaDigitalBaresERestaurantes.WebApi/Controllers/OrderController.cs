@@ -43,7 +43,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
         {
             try
             {
-                orderProvider.ConfirmPayment(payment);
+                var x = orderProvider.ConfirmPayment(payment).Result;
                 return Ok();
             }
             catch (Exception e)

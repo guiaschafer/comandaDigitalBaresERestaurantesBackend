@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ComandaDigitalBaresERestaurantes.Interface.Providers
 {
@@ -9,6 +10,6 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Providers
     {
         void ConfirmOrder(ICollection<OrderDto> orderItens, string user);
         List<OrderHistoryDto> GetAllOrders(string user);
-        void ConfirmPayment(PaymentDto paymentDto);
+        Task<bool> ConfirmPayment(PaymentDto paymentDto);
     }
 }

@@ -2,18 +2,23 @@
 using ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Enum;
 using ComandaDigitalBaresERestaurantes.Interface;
 using ComandaDigitalBaresERestaurantes.Interface.Dtos;
+using ComandaDigitalBaresERestaurantes.Interface.Dtos.MundiPagg;
 using ComandaDigitalBaresERestaurantes.Interface.Providers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ComandaDigitalBaresERestaurantes.Service.Providers
 {
     public class OrderProvider : IOrderProvider
     {
         private readonly IUnitOfWork unitOfWork;
-
+        static HttpClient client = new HttpClient();
 
         public OrderProvider(IUnitOfWork unitOfWork)
         {
@@ -43,7 +48,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
             unitOfWork.Commit();
         }
 
-        public void ConfirmPayment(PaymentDto paymentDto)
+        public async Task<bool> ConfirmPayment(PaymentDto paymentDto)
         {
             var order = unitOfWork.OrderRepository.GetOne(o => o.Id == paymentDto.Id);
             var totalOrder = 0.00;
@@ -58,54 +63,69 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
             {
                 //MundiAPIClient client = new MundiAPIClient("sk_test_OKxVB791Fei8dwy9", null);
 
-                //var items = new List<CreateOrderItemRequest> {
-                //     new CreateOrderItemRequest {
-                //     Amount = 1,//(int)totalOrder,
-                //     Description = "Pedido nº" + order.Id,
-                //     Quantity = 1
-                //     }
-                // };
-                //var customer = new CreateCustomerRequest
-                //{
-                //    Name = order.Client.Fullname,
-                //    Email = order.Client.Email,
-                //};
+                var mundiPaggItems = new MundiPaggItemDto();
+                mundiPaggItems.items = new List<MundiPaggItensDto>();
+                mundiPaggItems.items.Add(new MundiPaggItensDto
+                {
+                    Amount = 1,//(int)totalOrder,
+                    Description = "Pedido nº" + order.Id,
+                    Quantity = 1
+                });
 
-                //var payments = new List<CreatePaymentRequest> {
-                //     new CreatePaymentRequest {
-                //         PaymentMethod = "credit_card",
-                //         CreditCard = new CreateCreditCardPaymentRequest {
-                //              Card = new CreateCardRequest {
-                //                    HolderName = paymentDto.CardName,
-                //                    Number = paymentDto.CardNumber,
-                //                    ExpMonth = Int32.Parse(paymentDto.ValidUntil.Substring(0, 2)),
-                //                    ExpYear = Int32.Parse(paymentDto.ValidUntil.Substring(3, 2)),
-                //                    Cvv = paymentDto.Cvv
-                //              }
-                //         }
-                //     }
-                //};
+                var customer = new MundiPaggCustomerDto
+                {
+                    Name = order.Client.Fullname,
+                    Email = order.Client.Email,
+                };
 
-                //var request = new CreateOrderRequest
-                //{
-                //    Items = items,
-                //    Customer = customer,
-                //    Payments = payments
-                //};
+                var payments = new List<MundiPaggPaymentsDto>();
+                payments.Add(new MundiPaggPaymentsDto
+                {
+                    payment_method = "credit_card",
+                    credit_card = new MundiPaggCrediCardDto
+                    {
+                        card = new MundiPaggCardDto
+                        {
+                            holder_name = paymentDto.CardName,
+                            number = paymentDto.CardNumber,
+                            exp_month = Int32.Parse(paymentDto.ValidUntil.Substring(0, 2)),
+                            exp_year = Int32.Parse(paymentDto.ValidUntil.Substring(3, 2)),
+                            cvv = paymentDto.Cvv
+                        }
+                    }
 
-                //var response = client.Orders.CreateOrder(request);
+                });
+                var request = new
+                {
+                    items = mundiPaggItems.items,
+                    customer = customer,
+                    payments = payments
+                };
 
-                //if(response.Status != "paid")
-                //{
-                //    var error = (MundiAPI.PCL.Models.GetCreditCardTransactionResponse)response.Charges[0].LastTransaction;
-                //    throw new Exception(error.AcquirerMessage);                    
-                //}
-                //else
-                //{
-                //    order.Status = Status.Payed;
-                //    unitOfWork.Commit();
-                //}
+                client.BaseAddress = new Uri("https://api.mundipagg.com/core/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", "c2tfdGVzdF9PS3hWQjc5MUZlaThkd3k5Og==");
+                var requestJson = JsonConvert.SerializeObject(request);
+                HttpResponseMessage response = await client.PostAsync(
+              "v1/orders/", new StringContent(requestJson, Encoding.UTF8, "application/json"));
+
+                var responseObject = JsonConvert.DeserializeObject<MundiPaggResponse>(response.Content.ReadAsStringAsync().Result);
+
+                if(responseObject.status != "paid")
+                {
+                    var error = responseObject.charges.First().last_transaction.acquirer_message;
+                    throw new Exception(error);
+                }
+                else
+                {
+                    order.Status = Status.Payed;
+                    unitOfWork.Commit();
+                }             
             }
+
+            return true;
         }
 
         public List<OrderHistoryDto> GetAllOrders(string user)
