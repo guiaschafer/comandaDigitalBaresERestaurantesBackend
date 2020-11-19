@@ -5,27 +5,29 @@ using System.Threading.Tasks;
 using ComandaDigitalBaresERestaurantes.Interface.Dtos;
 using ComandaDigitalBaresERestaurantes.Interface.Providers;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 {
-    public class ProductController : ControllerBase
+    [ApiController]
+    public class CategoryController : ControllerBase
     {
-        private readonly IProductProvider productProvider;
-        public ProductController(IProductProvider productProvider)
+        private readonly ICategoryProvider categoryProvider;
+        public CategoryController(ICategoryProvider categoryProvider)
         {
-            this.productProvider = productProvider;
+            this.categoryProvider = categoryProvider;
         }
 
-        [HttpGet]
         [Authorize]
-        [Route("products")]
-        public IActionResult Index()
+        [HttpGet]
+        [Route("categories")]
+        public IActionResult Categories()
         {
             try
             {
-                var produtos = productProvider.GetAll();
-                return Ok(produtos);
+                var categories = categoryProvider.GetAll();
+                return Ok(categories);
             }
             catch (Exception e)
             {
@@ -35,12 +37,12 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("products")]
-        public IActionResult ProductInsert([FromBody] ProductDto productDto)
+        [Route("categories")]
+        public IActionResult CategoriesInsert([FromBody] CategoryDto categoryDto)
         {
             try
             {
-                productProvider.Insert(productDto);
+                categoryProvider.Insert(categoryDto);
                 return Ok();
             }
             catch (Exception e)
@@ -51,12 +53,12 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
 
         [Authorize]
         [HttpPut]
-        [Route("products")]
-        public IActionResult ProductUpdate([FromBody] ProductDto productDto)
+        [Route("categories")]
+        public IActionResult CategoriesUpdate([FromBody] CategoryDto categoryDto)
         {
             try
             {
-                productProvider.Update(productDto);
+                categoryProvider.Update(categoryDto);
                 return Ok();
             }
             catch (Exception e)

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace ComandaDigitalBaresERestaurantes.Interface.Providers
 {
-    public interface IProductProvider
+    public interface ICategoryProvider
     {
-        ICollection<ProductDto> GetAll();
-        void Update(ProductDto productDto);
-        void Insert(ProductDto productDto);
+        List<CategoryDto> GetAll();
+        void Update(CategoryDto categoryDto);
+        void Insert(CategoryDto categoryDto);
     }
 }

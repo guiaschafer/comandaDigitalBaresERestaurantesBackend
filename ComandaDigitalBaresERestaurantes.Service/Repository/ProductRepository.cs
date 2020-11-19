@@ -20,12 +20,12 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         void IRepository<Product>.Add(Product entity)
         {
-            throw new NotImplementedException();
+            _context.Product.Add(entity);
         }
 
         void IRepository<Product>.Delete(Product entity)
         {
-            throw new NotImplementedException();
+            _context.Product.Remove(entity);
         }
 
         IEnumerable<Product> IRepository<Product>.Get()
@@ -40,7 +40,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         Product IRepository<Product>.GetOne(Expression<Func<Product, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Product.First(predicate);
         }
 
         void IRepository<Product>.Update(Product entity)

@@ -22,8 +22,10 @@ namespace ComandaDigitalBaresERestaurantes.Service.Mappers
                 Id = source.Id,
                 Name = source.Name,
                 UrlImagem = source.UrlImage,
-                Value = source.Value,
-                Category = source.Category.Name
+                Description = source.Description,
+                Value = source.Value.ToString(),
+                Category = source.Category.Name,
+                IdCategory = source.Category.Id
             } : null;
     }
 }

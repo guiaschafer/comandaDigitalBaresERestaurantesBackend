@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Entity;
 
 namespace ComandaDigitalBaresERestaurantes.Service.Providers
 {
@@ -33,6 +34,52 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
             }
 
             return p;
+        }
+
+        public void Insert(ProductDto productDto)
+        {
+            try
+            {
+                var product = new Product();
+                if (product != null)
+                {
+                    product.IdCategory = productDto.IdCategory;
+                    product.Name = productDto.Name;
+                    product.UrlImage = productDto.UrlImagem;
+                    product.Value = Double.Parse(productDto.Value);
+                    product.Description = productDto.Description;
+
+                    unitOfWork.ProductRepository.Add(product);
+                    unitOfWork.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Update(ProductDto productDto)
+        {
+            try
+            {
+                var product = unitOfWork.ProductRepository.GetOne(p => p.Id == productDto.Id);
+
+                if(product != null)
+                {
+                    product.IdCategory = productDto.IdCategory;
+                    product.Name = productDto.Name;
+                    product.UrlImage = productDto.UrlImagem;
+                    product.Value = Double.Parse(productDto.Value);
+                    product.Description = productDto.Description;
+
+                    unitOfWork.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception (e.Message);
+            }
         }
     }
 }

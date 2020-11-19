@@ -18,7 +18,6 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
     public class OrderProvider : IOrderProvider
     {
         private readonly IUnitOfWork unitOfWork;
-        static HttpClient client = new HttpClient();
 
         public OrderProvider(IUnitOfWork unitOfWork)
         {
@@ -102,6 +101,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                     payments = payments
                 };
 
+                HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("https://api.mundipagg.com/core/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(

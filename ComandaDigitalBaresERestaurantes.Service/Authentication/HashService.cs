@@ -15,9 +15,11 @@ namespace ComandaDigitalBaresERestaurantes.Service.Authentication
             {
                 var hashPassword = sha512
                     .ComputeHash(UTF8.GetBytes(password));
-                return BitConverter
+                var x =  BitConverter
                     .ToString(hashPassword)
                     .Replace("-", "");
+
+                return x;
             }
         }
     }

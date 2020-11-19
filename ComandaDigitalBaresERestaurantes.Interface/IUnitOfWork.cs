@@ -13,6 +13,7 @@ namespace ComandaDigitalBaresERestaurantes.Interface
         IRepository<User> UserRepository { get; }
         IRepository<Product> ProductRepository { get; }
         IRepository<Client> ClientRepository { get; }
+        IRepository<Category> CategoryRepository { get; }
         IRepository<Order> OrderRepository { get; }
         int Commit();
     }

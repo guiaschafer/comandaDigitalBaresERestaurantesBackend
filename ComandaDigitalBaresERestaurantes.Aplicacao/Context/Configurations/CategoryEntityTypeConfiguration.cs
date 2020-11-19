@@ -14,8 +14,7 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Context.Configurations
             builder.ToTable("Category");
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Name).IsRequired();
-
-
+            builder.Property(c => c.Url).IsRequired();
         }
     }
 }
