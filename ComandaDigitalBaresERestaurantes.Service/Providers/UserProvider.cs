@@ -50,7 +50,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
         public UserDto GetUserAsync(string login)
         {
-            var user = unitOfWork.UserRepository.GetOne(u => u.Login == login);
+            var user = unitOfWork.UserRepository.GetOne(u => u.Login.ToUpper() == login.ToUpper());
             return mapper.MapToDto(user);
 
 

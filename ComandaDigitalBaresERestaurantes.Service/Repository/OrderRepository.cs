@@ -29,14 +29,18 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         public IEnumerable<Order> Get()
         {
-            return _context.Order.ToList();
+            return _context.Order
+                .Include(o => o.Client)
+                .Include(o => o.ListOfItens)
+                .ThenInclude(l => l.Product)
+                .ToList();
         }
 
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> predicate)
         {
             return _context.Order.Include(o => o.Client)
                 .Include(o => o.ListOfItens)
-                .ThenInclude(o=> o.Product)
+                .ThenInclude(o => o.Product)
                 .Where(predicate);
         }
 

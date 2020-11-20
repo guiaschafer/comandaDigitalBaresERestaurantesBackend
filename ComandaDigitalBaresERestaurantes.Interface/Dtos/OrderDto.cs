@@ -8,6 +8,6 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Dtos
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public double Value { get; set; }
+        public string Value { get; set; }
     }
 }

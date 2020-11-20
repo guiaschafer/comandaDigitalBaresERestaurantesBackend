@@ -144,7 +144,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                     itens.Add(new OrderDto
                     {
                         Name = item.Product.Name,
-                        Value = item.Product.Value,
+                        Value = item.Product.Value.ToString(),
                         Id = item.IdProduct,
                         Quantity = item.Quantity
                     });
@@ -179,7 +179,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                     itens.Add(new OrderDto
                     {
                         Name = item.Product.Name,
-                        Value = item.Product.Value,
+                        Value = item.Product.Value.ToString(),
                         Id = item.IdProduct,
                         Quantity = item.Quantity
                     });
@@ -189,6 +189,8 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
                 orderhistory.Add(new OrderHistoryDto
                 {
+                    NameClient = order.Client.Fullname,
+                    CpfClient = order.Client.Cpf,
                     Id = order.Id,
                     Status = Util.GetDescription<Status>(order.Status),
                     CodigoStatus = (int)order.Status,

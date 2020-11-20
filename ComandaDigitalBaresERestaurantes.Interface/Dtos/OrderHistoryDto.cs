@@ -10,5 +10,8 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Dtos
         public string Status { get; set; }
         public int CodigoStatus { get; set; }
         public double ValorTotal { get; set; }
+
+        public string NameClient { get; set; }
+        public string CpfClient { get; set; }
     }
 }
