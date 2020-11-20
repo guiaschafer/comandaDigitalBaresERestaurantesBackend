@@ -59,11 +59,13 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
             {
                 var category = unitOfWork.CategoryRepository.GetOne(c => c.Id == categoryDto.Id);
 
-                category.Name = categoryDto.Name;
-                category.Url = categoryDto.Url;
+                if (category != null)
+                {
+                    category.Name = categoryDto.Name;
+                    category.Url = categoryDto.Url;
 
-                unitOfWork.CategoryRepository.Add(category);
-                unitOfWork.Commit();
+                    unitOfWork.Commit();
+                }
             }
             catch (Exception e)
             {

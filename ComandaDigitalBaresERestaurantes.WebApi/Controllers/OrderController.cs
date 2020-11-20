@@ -70,5 +70,21 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("ordersAll")]
+        [Authorize]
+        public IActionResult OrdersAll()
+        {
+            try
+            {
+                return Ok(orderProvider.GetAllOrders());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
     }
 }

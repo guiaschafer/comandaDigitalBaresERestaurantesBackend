@@ -165,5 +165,39 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
             return orderhistory.OrderByDescending(o => o.Id).ToList();
         }
 
+        public List<OrderHistoryDto> GetAllOrders()
+        {
+            var history = unitOfWork.OrderRepository.Get();
+
+            var orderhistory = new List<OrderHistoryDto>();
+            foreach (var order in history)
+            {
+                var itens = new List<OrderDto>();
+                double total = 0;
+                foreach (var item in order.ListOfItens)
+                {
+                    itens.Add(new OrderDto
+                    {
+                        Name = item.Product.Name,
+                        Value = item.Product.Value,
+                        Id = item.IdProduct,
+                        Quantity = item.Quantity
+                    });
+
+                    total += item.Quantity * item.Product.Value;
+                }
+
+                orderhistory.Add(new OrderHistoryDto
+                {
+                    Id = order.Id,
+                    Status = Util.GetDescription<Status>(order.Status),
+                    CodigoStatus = (int)order.Status,
+                    Itens = itens,
+                    ValorTotal = total
+                });
+            }
+
+            return orderhistory.OrderByDescending(o => o.Id).ToList();
+        }
     }
 }

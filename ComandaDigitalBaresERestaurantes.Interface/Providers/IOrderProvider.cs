@@ -10,6 +10,8 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Providers
     {
         void ConfirmOrder(ICollection<OrderDto> orderItens, string user);
         List<OrderHistoryDto> GetAllOrders(string user);
+        List<OrderHistoryDto> GetAllOrders();
+
         Task<bool> ConfirmPayment(PaymentDto paymentDto);
     }
 }

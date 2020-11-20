@@ -11,6 +11,6 @@ namespace ComandaDigitalBaresERestaurantes.Interface.Dtos
         public string Description { get; set; }
         public string Category { get;set; }
         public string Value { get; set; }
-        public int IdCategory { get; set; }
+        public string IdCategory { get; set; }
     }
 }

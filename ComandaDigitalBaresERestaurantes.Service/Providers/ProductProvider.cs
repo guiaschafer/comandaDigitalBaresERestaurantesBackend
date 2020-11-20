@@ -43,7 +43,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                 var product = new Product();
                 if (product != null)
                 {
-                    product.IdCategory = productDto.IdCategory;
+                    product.IdCategory = Int32.Parse(productDto.IdCategory);
                     product.Name = productDto.Name;
                     product.UrlImage = productDto.UrlImagem;
                     product.Value = Double.Parse(productDto.Value);
@@ -67,7 +67,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
                 if(product != null)
                 {
-                    product.IdCategory = productDto.IdCategory;
+                    product.IdCategory = Int32.Parse(productDto.IdCategory);
                     product.Name = productDto.Name;
                     product.UrlImage = productDto.UrlImagem;
                     product.Value = Double.Parse(productDto.Value);

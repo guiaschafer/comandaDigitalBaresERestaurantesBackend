@@ -29,7 +29,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Repository
 
         public IEnumerable<Order> Get()
         {
-            throw new NotImplementedException();
+            return _context.Order.ToList();
         }
 
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> predicate)
