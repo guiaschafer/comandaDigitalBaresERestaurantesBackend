@@ -68,7 +68,36 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
 
+        [HttpGet]
+        [Route("ordersKitchen")]
+        [Authorize]
+        public IActionResult OrdersKitchen()
+        {
+            try
+            {
+                return Ok(orderProvider.GetAllOrders(Aplicacao.Domain.Enum.Perfil.Kitchen));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("ordersBarBartender")]
+        [Authorize]
+        public IActionResult OrdersBarBartender()
+        {
+            try
+            {
+                return Ok(orderProvider.GetAllOrders(Aplicacao.Domain.Enum.Perfil.Bar));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet]
@@ -79,6 +108,23 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
             try
             {
                 return Ok(orderProvider.GetAllOrders());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
+        [HttpPost]
+        [Route("updateStatusOrder")]
+        [Authorize]
+        public IActionResult UpdateStatusOrder([FromBody] OrderDto orderDto)
+        {
+            try
+            {
+                orderProvider.UpdateStatusOrder(orderDto);
+                return Ok();
             }
             catch (Exception e)
             {

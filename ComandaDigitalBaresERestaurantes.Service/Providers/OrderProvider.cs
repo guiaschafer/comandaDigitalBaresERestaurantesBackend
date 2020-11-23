@@ -201,5 +201,106 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
             return orderhistory.OrderByDescending(o => o.Id).ToList();
         }
+
+        public List<OrderHistoryDto> GetAllOrders(Perfil perfil)
+        {
+            IEnumerable<Order> listOfOrders = null;
+            if (perfil == Perfil.Kitchen)
+            {
+                listOfOrders = unitOfWork.OrderRepository.Get(o => (int)o.Status < (int)Status.FoodFinished);                                        
+            }
+            else if(perfil == Perfil.Bar)
+            {
+                listOfOrders = unitOfWork.OrderRepository.Get(o => o.Status != Status.Payed);
+            }
+
+            if(listOfOrders != null)
+            {
+                var orderhistory = new List<OrderHistoryDto>();
+                foreach (var order in listOfOrders)
+                {
+                    var itens = new List<OrderDto>();
+                    double total = 0;
+                    foreach (var item in order.ListOfItens)
+                    {
+                        itens.Add(new OrderDto
+                        {
+                            Name = item.Product.Name,
+                            Value = item.Product.Value.ToString(),
+                            Id = item.IdProduct,
+                            Quantity = item.Quantity
+                        });
+
+                        total += item.Quantity * item.Product.Value;
+                    }
+
+                    orderhistory.Add(new OrderHistoryDto
+                    {
+                        NameClient = order.Client.Fullname,
+                        CpfClient = order.Client.Cpf,
+                        Id = order.Id,
+                        Status = Util.GetDescription<Status>(order.Status),
+                        CodigoStatus = (int)order.Status,
+                        Itens = itens,
+                        ValorTotal = total
+                    });
+                }
+
+                return orderhistory.OrderBy(o => o.Id).ToList();
+            }
+
+            return null;
+        }
+        public void UpdateStatusOrder(OrderDto orderDto)
+        {
+            var order = unitOfWork.OrderRepository.GetOne(o => o.Id == orderDto.Id);
+
+            if(order != null)
+            {
+                if(orderDto.Status == (int)Status.DrinksSent)
+                {
+                    if(order.Status == Status.Open)
+                    {
+                        order.Status = Status.DrinksSent;
+                    }
+                    else if(order.Status == Status.InProgress)
+                    {
+                        order.Status = Status.InProgressDrinksSent;
+                    } 
+                    else if(order.Status == Status.FoodFinished)
+                    {
+                        order.Status = Status.FoodFinishedAndDrinksSent;
+                    }
+                }
+                else if (orderDto.Status == (int)Status.InProgress)
+                {
+                    if (order.Status == Status.Open)
+                    {
+                        order.Status = Status.InProgress;
+                    }
+                    else if (order.Status == Status.DrinksSent)
+                    {
+                        order.Status = Status.InProgressDrinksSent;
+                    }
+                }
+                else if(orderDto.Status == (int)Status.FoodFinished)
+                {
+                    if (order.Status == Status.InProgressDrinksSent)
+                    {
+                        order.Status = Status.FoodFinishedAndDrinksSent;
+                    }
+                    else if (order.Status == Status.InProgress)
+                    {
+                        order.Status = Status.FoodFinished;
+                    }
+                }
+                else if(orderDto.Status == (int)Status.OrderSent)
+                {
+                    order.Status = Status.OrderSent;
+                }
+
+                unitOfWork.Commit();
+            }
+        }
     }
 }

@@ -7,16 +7,21 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Enum
 {
     public enum Status
     {
-        [Description("Open")]
+        [Description("Aberto")]
         Open = 0,
-        [Description("Closed")]
-        Closed = 1,
-        [Description("Payed")]
-        Payed = 2,
-        [Description("In Progress")]
-        InProgress = 3,
-        [Description("Prepared")]
-        Prepared = 4
-
+        [Description("Bebidas entregues")]
+        DrinksSent = 1,
+        [Description("Preparando comida")]
+        InProgress = 2,
+        [Description("Preparando comida e bebidas entregues")]
+        InProgressDrinksSent = 3,
+        [Description("Comida pronta")]
+        FoodFinished = 4,
+        [Description("Comida pronta e bebidas entregues")]
+        FoodFinishedAndDrinksSent = 5,
+        [Description("Pedido entregue")]
+        OrderSent = 6,
+        [Description("Pago")]
+        Payed = 7
     }
 }
