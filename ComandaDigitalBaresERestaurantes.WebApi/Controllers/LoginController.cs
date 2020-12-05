@@ -49,7 +49,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
                 }
             }
 
-            return Unauthorized();
+            return Unauthorized("Usuário ou senha inválidos");
         }
 
         [AllowAnonymous]
