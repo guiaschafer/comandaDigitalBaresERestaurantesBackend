@@ -11,13 +11,13 @@ namespace ComandaDigitalBaresERestaurantes.Aplicacao.Domain.Enum
         Open = 0,
         [Description("Bebidas entregues")]
         DrinksSent = 1,
-        [Description("Preparando comida")]
+        [Description("Prep. comida")]
         InProgress = 2,
-        [Description("Preparando comida e bebidas entregues")]
+        [Description("Prep. Comida, bebida entreg.")]
         InProgressDrinksSent = 3,
-        [Description("Comida pronta")]
+        [Description("Comida ok")]
         FoodFinished = 4,
-        [Description("Comida pronta e bebidas entregues")]
+        [Description("Comida ok  e bebidas entreg.")]
         FoodFinishedAndDrinksSent = 5,
         [Description("Pedido entregue")]
         OrderSent = 6,
