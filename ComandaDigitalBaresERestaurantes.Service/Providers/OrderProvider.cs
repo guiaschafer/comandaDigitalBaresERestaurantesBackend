@@ -145,7 +145,7 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
         {
             var client = unitOfWork.ClientRepository.GetOne(c => c.User.Login == user);
 
-            var history = unitOfWork.OrderRepository.Get(o => o.Client.User.Login == user && o.Status != Aplicacao.Domain.Enum.Status.Payed);
+            var history = unitOfWork.OrderRepository.Get(o => o.Client.User.Login == user);
 
             var orderhistory = new List<OrderHistoryDto>();
             foreach (var order in history)
