@@ -59,14 +59,14 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
 
             var totalOrderString = totalOrder.ToString();
 
-            if (totalOrderString.Contains(","))
+            if (totalOrderString.Contains("."))
             {
-                if(totalOrderString.Substring(totalOrderString.IndexOf(",")+1).Length == 1)
+                if(totalOrderString.Substring(totalOrderString.IndexOf(".")+1).Length == 1)
                 {
                     totalOrderString += "0";
                 }
 
-                totalOrderString = totalOrderString.Replace(",", "");
+                totalOrderString = totalOrderString.Replace(".", "");
             }
             else
             {
