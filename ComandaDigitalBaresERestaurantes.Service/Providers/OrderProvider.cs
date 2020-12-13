@@ -57,16 +57,29 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                 totalOrder += (item.Quantity * item.Product.Value);
             }
 
+            var totalOrderString = totalOrder.ToString();
+
+            if (totalOrderString.Contains(","))
+            {
+                if(totalOrderString.Substring(totalOrderString.IndexOf(",")+1).Length == 1)
+                {
+                    totalOrderString += "0";
+                }
+
+                totalOrderString = totalOrderString.Replace(",", "");
+            }
+            else
+            {
+                totalOrderString += "00";
+            }
 
             if (order != null)
             {
-                //MundiAPIClient client = new MundiAPIClient("sk_test_OKxVB791Fei8dwy9", null);
-
                 var mundiPaggItems = new MundiPaggItemDto();
                 mundiPaggItems.items = new List<MundiPaggItensDto>();
                 mundiPaggItems.items.Add(new MundiPaggItensDto
                 {
-                    Amount = 1,//(int)totalOrder,
+                    Amount = Int32.Parse(totalOrderString),
                     Description = "Pedido nº" + order.Id,
                     Quantity = 1
                 });
@@ -266,7 +279,11 @@ namespace ComandaDigitalBaresERestaurantes.Service.Providers
                     else if(order.Status == Status.InProgress)
                     {
                         order.Status = Status.InProgressDrinksSent;
-                    } 
+                    }
+                    else if (order.Status == Status.FoodFinishedAndDrinksSent)
+                    {
+                        order.Status = Status.OrderSent;
+                    }
                     else if(order.Status == Status.FoodFinished)
                     {
                         order.Status = Status.FoodFinishedAndDrinksSent;

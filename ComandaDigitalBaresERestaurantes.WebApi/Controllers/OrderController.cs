@@ -31,7 +31,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest("Não foi possível confirmar o pedido");
             }
 
         }
@@ -39,7 +39,7 @@ namespace ComandaDigitalBaresERestaurantes.WebApi.Controllers
         [HttpPost]
         [Route("confirmPayment")]
         [Authorize]
-        public IActionResult OrderConfirm([FromBody] PaymentDto payment)
+        public IActionResult ConfirmPayment([FromBody] PaymentDto payment)
         {
             try
             {
